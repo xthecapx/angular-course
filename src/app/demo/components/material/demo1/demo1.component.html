@@ -1,0 +1,66 @@
+<app-activity [title]="lesson.title" [description]="lesson.description" [showSolutionLink]="false" [showContent]="false"
+ [showResult]="false"></app-activity>
+
+<app-activity [title]="activity1.title" [description]="activity1.description" [steps]="activity1.steps" [solution]="activity1.solution"
+ [result]="result1">
+
+	<button class="btn btn-primary" (click)="verify(1)">Verify 1</button>
+
+  <br /><br />
+  <ng-container *ngIf="results[1]">
+    <button mat-fab color="primary">This</button>
+    <button mat-fab color="accent">Looks</button>
+    <button mat-fab color="warn">Great</button>
+  </ng-container>
+
+</app-activity>
+
+<app-activity [title]="activity2.title"
+              [description]="activity2.description"
+              [steps]="activity2.steps"
+              [solution]="activity2.solution"
+              [result]="result2">
+
+  <button class="btn btn-primary" (click)="verify(2)">Button 2</button>
+  <ng-container *ngIf="results[2]">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</app-activity>
+<!--
+<app-activity [title]="activity3.title"
+              [description]="activity3.description"
+              [steps]="activity3.steps"
+              [solution]="activity3.solution"
+              [result]="result3">
+</app-activity>
+
+<div class="alert alert-info my-5">
+  <h3 class="my-2">Extra Exercises</h3>
+</div>
+
+<app-activity [title]="activity4.title"
+              [description]="activity4.description"
+              [steps]="activity4.steps"
+              [solution]="activity4.solution"
+              [showContent]="false"
+              [showResult]="false">
+
+</app-activity> -->
