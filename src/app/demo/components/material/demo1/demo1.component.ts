@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { Observable, Subscription, fromEvent } from 'rxjs';
 import * as activities from './demo1.activities';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-material-demo1',
@@ -13,19 +14,28 @@ export class MaterialDemo1Component {
   public readonly activity1 = activities.activity1;
   public readonly activity2 = activities.activity2;
   public readonly activity3 = activities.activity3;
-  public readonly activity4 = activities.activity4;
+
+  constructor(public router: Router) {}
 
   // Store the result of the activities
-  public result2: any;
-  public result3: any;
   public results = {
     1: false,
     2: false,
-    3: false
+    3: [
+      "Hit on the button and a new section", 
+      "will be visible in the app"
+    ]
   }
 
   public verify(demo) {
     this.results[demo] = !this.results[demo];
+    if (demo === 3) {
+      this.router.navigate(['/material-nav']);
+    }
+  }
+
+  public navigate(route: string) {
+    this.router.navigate([route]); 
   }
 
 }

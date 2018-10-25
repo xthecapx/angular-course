@@ -88,65 +88,26 @@ export class AppModule { }`,
 };
 
 export const activity3 = {
-  title: 'Activity 3: fromEvent',
+  title: 'Using Angular squematics',
   description: [
-    `In this case we use the <code>fromEvent</code> Observable again, but in this case we are going to use it to capture the click event anywhere in the document.`
+    `On this activity you will create an Angular app using the cli.`
   ],
-  solution: `this.activity3sub = fromEvent(document, 'click')
-  .subscribe((event: MouseEvent) => {
-    this.result3 = {x: event.clientX, y: event.clientY};
-  });`,
+  solution: `Go to https://github.com/xthecapx/angular-quiz
+for Help.`,
   steps: [
     {
-      step: ``,
-      code: `this.activity3sub = fromEvent()`,
+      step: `Run the following code in the console`,
+      code: `ng generate @angular/material:material-nav --name myMaterialNav --component app`,
     },
     {
-      step: ``,
-      code: `this.activity3sub = fromEvent(document, 'click')`,
-    },
-    {
-      step: `Call the <code>subscribe()</code> method`,
-      code: `.subscribe();`,
-    },
-    {
-      step: `Add a callback function that takes a parameter <code>event</code> of type <code>MouseEvent</code>.`,
-      code: `.subscribe((event: MouseEvent) => {});`,
-    },
-    {
-      step: `Inside the method body, assign an empty object to <code>result3</code>.`,
-      code: `.subscribe((event: MouseEvent) => {
-  this.result3 = { };
-});`,
-    },
-    {
-      step: `Add the keys <code>x</code> and <code>y</code> and assign the values of <code>event.clientX</code> and <code>event.clientY</code>`,
-      code: `.subscribe((event: MouseEvent) => {
-  this.result3 = {x: event.clientX, y: event.clientY};
-});`,
-    },
-  ],
-};
-
-export const activity4 = {
-  title: 'Exercise 1: unsubscribing',
-  description: [
-    `To prevent memory leaks, we should always consider unsubscribing from our Observables.`,
-    `We can do this using the <code>ngOnDestroy</code> method, that Angular runs during the Component tear down.`,
-    `In order to unsubscribe we need to store a reference to the subscription, what we did in the previous activities.`,
-  ],
-  solution: `ngOnDestroy() {
-  this.activity2sub.unsubscribe();
-  this.activity3sub.unsubscribe();
-}`,
-  steps: [
-    {
-      step: `In the ngOnDestroy method add call into the <code>unsubscribe()</code> method on <code>this.activity2sub</code>`,
-      code: `this.activity2sub.unsubscribe()`,
-    },
-    {
-      step: `Do the same for <code>this.activity3sub</code>`,
-      code: `this.activity3sub.unsubscribe()`,
-    },
+      step: `Go to app-routing.modulets`,
+      code: `Add the following code to the router collection
+const routes: Routes = [
+  ...
+  {
+    path: 'material-nav',
+    component: MyMaterialNavComponent 
+  }];`,
+    }
   ],
 };
